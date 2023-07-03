@@ -18,5 +18,5 @@ CREATE TABLE Role (
     id INT PRIMARY KEY NOT NULL,
     roleName VARCHAR(100),
     descript VARCHAR(100),
-    picture VARCHAR(1000)
+    pic VARCHAR(1000)
 );
