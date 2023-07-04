@@ -6,21 +6,21 @@ USE werewolf;
 
 CREATE TABLE users (
     id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    userName VARCHAR(100),
+    username VARCHAR(100),
     pwd VARCHAR(100),
     levels VARCHAR(100)
 );
 CREATE TABLE role (
     id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    roleName VARCHAR(100),
+    name VARCHAR(100),
     descript VARCHAR(100),
     picture VARCHAR(1000)
 );
 CREATE TABLE player (
     id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    idUser INT ,
+    id_user INT ,
     statut VARCHAR(100),
-    idRole INT,
-    FOREIGN KEY (idUser) REFERENCES Users(id),
-    FOREIGN KEY (idRole) REFERENCES Role(id)
+    id_role INT,
+    FOREIGN KEY (id_user) REFERENCES users(id),
+    FOREIGN KEY (id_role) REFERENCES role(id)
 );
