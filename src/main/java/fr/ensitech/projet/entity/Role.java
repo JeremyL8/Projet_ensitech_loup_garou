@@ -20,6 +20,15 @@ public class Role {
     @Column(name = "picture")
     private String urlPicture;
 
+    @Column(name = "can_delete")
+    private int canDelete;
+
+    @Column(name = "wolf")
+    private int isWolf;
+
+    @Column(name = "villager")
+    private int isVillager;
+
     public int getId() {
         return id;
     }
@@ -52,19 +61,49 @@ public class Role {
         this.urlPicture = urlPicture;
     }
 
+    public int getCanDelete() {
+        return canDelete;
+    }
+
+    public void setCanDelete(int canDelete) {
+        this.canDelete = canDelete;
+    }
+
+    public int getIsWolf() {
+        return isWolf;
+    }
+
+    public void setIsWolf(int isWolf) {
+        this.isWolf = isWolf;
+    }
+
+    public int getIsVillager() {
+        return isVillager;
+    }
+
+    public void setIsVillager(int isVillager) {
+        this.isVillager = isVillager;
+    }
+
     public Role() {
     }
 
-    public Role(int id, String name, String description, String urlPicture) {
+    public Role(int id, String name, String description, String urlPicture, int canDelete, int isWolf, int isVillager){
         this.id = id;
         this.name = name;
         this.description = description;
         this.urlPicture = urlPicture;
+        this.canDelete = canDelete;
+        this.isWolf = isWolf;
+        this.isVillager = isVillager;
     }
 
-    public Role(String name, String description, String urlPicture) {
+    public Role(String name, String description, String urlPicture, int canDelete, int isWolf, int isVillager) {
         this.name = name;
         this.description = description;
         this.urlPicture = urlPicture;
+        this.canDelete = canDelete;
+        this.isWolf = isWolf;
+        this.isVillager = isVillager;
     }
 }
