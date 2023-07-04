@@ -5,6 +5,8 @@ import fr.ensitech.projet.repository.RoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.*;
+
 @Service
 public class RoleService {
 
@@ -35,5 +37,38 @@ public class RoleService {
      */
     public void deleteRoleWithId(int id) {
         this.roleRepository.deleteById(id);
+    }
+
+    /**
+     * Allow to recover a random role werewolf
+     * @return the random role werewolf
+     */
+    public Role getWereWolf() {
+        Random random = new Random();
+        List<Role> allWolfRole = this.roleRepository.getAllWolfRole();
+        int index = random.nextInt(allWolfRole.size());
+        return allWolfRole.get(index);
+    }
+
+    /**
+     * Allow to recover a random role villager
+     * @return the random role villager
+     */
+    public Role getRandomVillager() {
+        Random random = new Random();
+        List<Role> allVillagerRole = this.roleRepository.getAllVillagerRole();
+        int index = random.nextInt(allVillagerRole.size());
+        return allVillagerRole.get(index);
+    }
+
+    /**
+     * Allow to recover the clairvoyant role
+     * @return the role clairvoyant
+     */
+    public Role getClairvoyant() {
+        Optional<Role> temp =  this.roleRepository.findById(2);
+        if (temp.isPresent())
+            return temp.get();
+        return null;
     }
 }
