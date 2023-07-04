@@ -21,4 +21,19 @@ public class RoleService {
     }
 
 
+    /**
+     * Allow to add or modify a role
+     * @param newRole the role who want to add or modify
+     */
+    public void createOrModify(Role newRole) {
+        this.roleRepository.save(newRole);
+    }
+
+    /**
+     * Allow to delete a role with his id
+     * @param id the if of the role who want to delete
+     */
+    public void deleteRoleWithId(int id) {
+        this.roleRepository.deleteById(id);
+    }
 }
