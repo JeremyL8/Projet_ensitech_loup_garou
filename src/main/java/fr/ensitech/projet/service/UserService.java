@@ -20,5 +20,12 @@ public class UserService {
         this.userRepository.save(user);
     }
 
-
+    /**
+     * Allow to recover a user with his username
+     * @param username the username of the user
+     * @return the user with this information
+     */
+    public User getUserByUsername(String username) {
+        return this.userRepository.getUserByUsername(username);
+    }
 }
