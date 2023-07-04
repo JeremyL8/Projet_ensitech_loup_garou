@@ -47,6 +47,7 @@ public class WebAppController {
     @PostMapping("/admin")
     public String viewAdminCreateRole(@ModelAttribute Role newRole, @RequestParam("image") File image) {
         newRole.setUrlPicture(image.getPath());
+        newRole.setCanDelete(1);
         this.roleService.createOrModify(newRole);
         return "redirect:admin";
     }
