@@ -14,11 +14,11 @@ public class Player {
     private String statut;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "idUser", referencedColumnName = "id")
+    @JoinColumn(name = "id_user", referencedColumnName = "id")
     private User user;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "idRole", referencedColumnName = "id")
+    @JoinColumn(name = "id_role", referencedColumnName = "id")
     private Role role;
 
 
