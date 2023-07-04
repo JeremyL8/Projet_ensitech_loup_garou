@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Connexion</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+</head>
+<body>
+<div th:if="${param.error}" style="color: red">
+  Pseudo et/ou de passe incorrect.
+</div>
+<div th:if="${param.logout}" style="color: red">
+  Vous êtes déjà connecté.
+</div>
+<form th:action="@{/login}" method="post">
+  <div>
+    <label for="pseudo"> Pseudo : </label>
+    <input type="text" id="pseudo" name="username"/> </div>
+  <div>
+    <label for="password"> Mot de passe: </label>
+    <input type="password" id="password" name="password"/> </div>
+  <div>
+    <button class="btn btn-success" type="submit">Connexion</button>
+  </div>
+</form>
+
+
+</body>
+</html>
