@@ -71,4 +71,26 @@ public class RoleService {
             return temp.get();
         return null;
     }
+
+    /**
+     * Allow to recover the thief role
+     * @return the role thief
+     */
+    public Role getRoleThief() {
+        Optional<Role> temp =  this.roleRepository.findById(4);
+        if (temp.isPresent())
+            return temp.get();
+        return null;
+    }
+
+    /**
+     * Allow to recover the simple villager role
+     * @return the role simple villager
+     */
+    public Role SimpleVillager() {
+        Optional<Role> temp =  this.roleRepository.findById(3);
+        if (temp.isPresent())
+            return temp.get();
+        return null;
+    }
 }
