@@ -1,6 +1,7 @@
 package fr.ensitech.projet.controller;
 
 import fr.ensitech.projet.entity.*;
+import fr.ensitech.projet.model.Game;
 import fr.ensitech.projet.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -32,6 +33,8 @@ public class WebAppController {
     @PreAuthorize("hasRole('USER')")
     @GetMapping("/game")
     public String game(){
+        Game game = new Game(new Player(),10,this.roleService);
+        game.runGame();
         return "game";
     }
 
