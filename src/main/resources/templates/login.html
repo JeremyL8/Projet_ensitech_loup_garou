@@ -20,7 +20,11 @@
         <title>Loup Garou TJM - Connexion</title>
         <div style="max-width: 400px; margin: 0 auto; padding: 20px; background-color: #3C7EDE; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
             <h2 style="text-align: center; font: bold; opacity: 100%;">Connexion</h2>
-            <form>
+            <div th:if="${param.error}" style="color: red">Pseudo et/ou de passe incorrect.</div>
+            <div th:if="${param.logout}" style="color: red">
+                Vous êtes déjà connecté.
+            </div>
+            <form th:action="@{/login}" method="post" >
                 <div style="margin-bottom: 20px;">
                     <label for="username" style="display: block; font-weight: bold; margin-bottom: 5px;">Identifiant</label>
                     <input type="text" id="username" name="username" style="width: 100%; padding: 10px 10px 10px 0; border: 1px solid #ccc; border-radius: 4px;">
@@ -43,7 +47,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
-                    <form th:if="${newUser != null}" method="post" action="#" th:action="@{/admin}" th:object="${newRole}">
+                    <form th:if="${newUser != null}" method="post" action="#" th:action="@{/admin}" th:object="${newUser}">
                       <div class="modal-body">
                         <div class="form_label">
                           <label for="name" >Nom</label><br/>
