@@ -30,44 +30,43 @@
                     <input type="password" id="password" name="password" style="width: 100%; padding: 10px 10px 10px 0; border: 1px solid #ccc; border-radius: 4px;">
                 </div>
 
-                <div class="modal fade" id="roleModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h4 class="modal-title" id="myModalLabel">Création d'un nouveau compte</h4>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <div style="margin-bottom: 20px;">
+                    <button type="submit" style="width: 100%; padding: 10px; background-color: #3762DE; color: #ffffff; border: none; border-radius: 4px; cursor: pointer; background-color: #0056b3;">Se connecter</button>
+                    <button class="btn btn-outline-primary btn-block add" type="button" data-bs-toggle="modal" data-bs-target="#compteModal" style="background-color: #B0B0B1; color: #0F0F0F; width: 100%; padding: 10px;">Créer un nouveau compte</button>
                 </div>
-                <div class="modal-body">
-                  <form th:if="${newRole != null}" method="post" action="#" th:action="@{/admin}" th:object="${newRole}">
-                    <div class="modal-body">
-                      <div class="form_label">
-                        <label for="name" >Nom</label><br/>
-                        <input type="text" id="name" required>
+            </form>
+            <div class="modal fade" id="compteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h4 class="modal-title">Création d'un nouveau compte</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <form th:if="${newUser != null}" method="post" action="#" th:action="@{/admin}" th:object="${newRole}">
+                      <div class="modal-body">
+                        <div class="form_label">
+                          <label for="name" >Nom</label><br/>
+                          <input type="text" id="name" required>
+                        </div>
+                        <div class="form_label">
+                          <label for="passwd">Mot de passe</label><br/>
+                          <input type="password" id="passwd" required>
+                        </div>
+                        <div class="form_label">
+                          <label for="pwdconfirmed">Confirmation du mot de passe</label><br/>
+                          <input type="password" id="pwdconfirmed" required>
+                        </div>
                       </div>
-                      <div class="form_label">
-                        <label for="passwd">Mot de passe</label><br/>
-                        <input type="password" id="passwd" required>
+                      <div class="modal-footer">
+                        <button type="submit" class="btn btn-success">Créer le compte</button>
+                        <!--<button type="button" class="btn btn-warning" data-dismiss="modal">Annuler</button>-->
                       </div>
-                      <div class="form_label">
-                        <label for="pwdconfirmed">Confirmation du mot de passe</label><br/>
-                        <input type="password" id="pwdconfirmed" required>
-                      </div>
-                    </div>
-                    <div class="modal-footer">
-                      <button type="submit" class="btn btn-success">Créer le compte</button>
-                      <!--<button type="button" class="btn btn-warning" data-dismiss="modal">Annuler</button>-->
-                    </div>
-                  </form>
+                    </form>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-
-                <div style="margin-bottom: 20px;">
-                    <button type="submit" style="width: 100%; padding: 10px; background-color: #3762DE; color: #ffffff; border: none; border-radius: 4px; cursor: pointer; background-color: #0056b3;">Se connecter</button>
-                    <button class="btn btn-outline-primary btn-block add" data-bs-toggle="modal" data-bs-target="#roleModal" style="background-color: #B0B0B1; color: #0F0F0F; width: 100%; padding: 10px;">Créer un nouveau compte</button>
-                </div>
-            </form>
         </div>
       </div>
 
