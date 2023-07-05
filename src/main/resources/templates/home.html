@@ -1,11 +1,41 @@
 <!DOCTYPE html>
 <html lang="fr" xmlns:th="https://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Accueil</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
-</head>
-<body>
-    <h2> Test </h2>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <title>Loup Garou TJM - Accueil</title>
+        <link th:href="@{/css/home.css}" rel="stylesheet">
+        <script type="text/javascript">
+            function showdiv(){
+                document.getElementById('debutpartie').style.display = 'block';
+            }
+
+            function showprofil(){
+                if(document.getElementById('boutonsprofil').style.display == 'none') { 
+                    document.getElementById('boutonsprofil').style.display = 'block'; 
+                }
+                else if(document.getElementById('boutonsprofil').style.display != 'none') { 
+                    document.getElementById('boutonsprofil').style.display = 'none'; 
+                } 
+                return false;
+            }
+        </script>
+    </head>
+    <body>
+        <div style="max-height: 30px; max-width: 40px;">
+            <button class="profile-button" onclick="return showprofil();">&#9787;</button><br/>
+            <button id="boutonsprofil" style="display: none; margin: 40px 0 0 0; background-color: #3762DE; color: #ffffff; cursor: pointer; background-color: #0056b3;">Déconnexion</button>
+        </div>
+        <div class="container">
+            <div class="button-row">
+                <button class="button" onclick="return showdiv();">Lancer une partie</button>
+                <div id="debutpartie" style="display: none; background-color: #3C7EDE; border-radius: 10px; max-width: 400px; margin:20px auto; padding: 20px;">
+                    <label for="nbjoueurs">Choisissez un nombre de joueurs entre 8 et 24.</label>
+                    <input type="number" name="nbjoueurs" min="8" max="24" value="8"><br/><br/>
+                    <button>C'est parti !</button>
+                </div>
+                <button class="button">Comment jouer ?</button>
+                <button class="button">Paramètres</button>
+            </div>
+        </div>
+    </body>
 </html>
